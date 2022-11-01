@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar bg-light">
+            <ul>
+                <li class="navlink"><a href="#">Home</a></li>
+                <li class="navlink"><a href="#">Merchandise</a></li>
+                <li class="navlink"><a href="#">Contact</a></li>
+                <li class="navlink"><a href="{% url 'display' %}">Display crud</a></li>
+            </ul>
+            
+        </nav>
+        <h1>Welcome Hombre!</h1>
+    </div>
+
+    <script src="{% static 'home/js/boostrap.js' %}"></script>
+</body>
+</html>

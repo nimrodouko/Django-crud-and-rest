@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+    <title>Document</title>
+
+</head>
+<style>
+.links {
+    text-decoration:none;
+    color: white;
+}
+</style>
+{% block content %}
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="row">
+                <div class="col-8">
+                    <div class="cardtitle">
+                        <h1>Your Reported cases</h1>
+        
+                    </div>
+
+                </div>
+                <div class="col-4">
+                    <div class="col-2"></div>
+                        <button class="btn btn-success" type="submit"><a href="{% url 'casecreate'%} " class="links">report case</a></button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success" type="submit"><a href="{% url 'index' %}" class="links">Home</a></button>
+
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="cardbody">
+                {% if case.image %}
+                        <img src="{{case.image.url }}" alt="{{case.title}}">
+                {% endif %}
+                {% for case in object_list %}
+                    <p>{{case.Fullname}}</p>
+                    <p>  {{case.title}}</p>
+                    <p>{{case.description}}</p>
+                    
+                    <button class="btn btn-primary" type="submit"><a href="{% url 'caseupdate' case.id %}"class="links">Edit</a></button>||<button class="btn btn-danger" type="submit"><a href="{% url 'casedelete' case.id %}" class="links">Delete</a></button>
+
+                {% endfor %}
+                <br>
+            </div>
+        </div>
+    </div>
+    
+</body>
+{% endblock content %}
+<script src="{% static 'home/js/bootstrap.js' %}"></script>
+</html>

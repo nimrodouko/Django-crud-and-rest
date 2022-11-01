@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+</head>
+{% block content %}
+<body>
+    <div class="container">
+
+        <h1>Edit your submitted cases</h1>
+        <p>Do you want to delete {{case}}? </p>
+        <form action=""method='POST'>
+            {% csrf_token %}
+        
+            <a href="{% url 'display' %}"></a>
+            <button class="btn btn-danger"type=submit>Delete</button>
+        </form>
+
+    </div>
+    
+</body>
+<script src="{% static 'home/js/bootstrap.js'%} "></script>
+{% endblock content %}
+</html>
